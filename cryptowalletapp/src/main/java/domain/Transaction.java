@@ -1,11 +1,12 @@
 package domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private final CryptoCurrency cryptoCurrency;
     private final UUID id;
     private final BigDecimal amount;

@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ResourceBundle;
 
+import Exceptions.InvalidFeeException;
 import domain.BankAccount;
 import Exceptions.InsufficientBalanceException;
 import domain.CryptoCurrency;
 import domain.Transaction;
+import domain.Wallet;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -49,9 +51,17 @@ public class Main extends Application {
 
         System.out.println(transaction);
 
+        Wallet wallet = null;
+        try {
+            wallet = new Wallet("My BTC Wallet", CryptoCurrency.BTC, new BigDecimal("-0.01"));
+        } catch (InvalidFeeException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        System.out.println(wallet);
+
         launch(args);
 
-        System.out.println("");
 
 
     }
