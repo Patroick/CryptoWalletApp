@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import domain.BankAccount;
 import Exceptions.InsufficientBalanceException;
 import domain.CryptoCurrency;
+import domain.Transaction;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -44,7 +45,13 @@ public class Main extends Application {
         System.out.println(crypto.getCode());
         System.out.println(CryptoCurrency.valueOf("BTC").getCurrencyName());
 
+        Transaction transaction = new Transaction(CryptoCurrency.ETH, new BigDecimal("1.3"), new BigDecimal("2000"));
+
+        System.out.println(transaction);
+
         launch(args);
+
+        System.out.println("");
 
 
     }
