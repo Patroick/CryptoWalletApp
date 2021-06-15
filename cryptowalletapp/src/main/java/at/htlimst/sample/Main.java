@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ResourceBundle;
 
+import Exceptions.InsufficientAmountException;
+import Exceptions.InvalidAmountException;
 import Exceptions.InvalidFeeException;
 import domain.BankAccount;
 import Exceptions.InsufficientBalanceException;
@@ -31,7 +33,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         System.out.println("Hallo Welt");
         BankAccount ba = new BankAccount();
-        ba.deposit(new BigDecimal("100"));
+        ba.deposit(new BigDecimal("10000"));
         System.out.println(ba);
 
         try {
@@ -53,12 +55,34 @@ public class Main extends Application {
 
         Wallet wallet = null;
         try {
-            wallet = new Wallet("My BTC Wallet", CryptoCurrency.BTC, new BigDecimal("-0.01"));
+            wallet = new Wallet("My BTC Wallet", CryptoCurrency.BTC, new BigDecimal("0.01"));
         } catch (InvalidFeeException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
         System.out.println(wallet);
+
+        try {
+            wallet.buy(new BigDecimal("100"),new BigDecimal("10"),ba);
+        } catch (InvalidAmountException e) {
+            e.printStackTrace();
+        } catch (InsufficientBalanceException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(wallet);
+        System.out.println(ba);
+
+        try {
+            wallet.sell(new BigDecimal("10"), new BigDecimal("20"),ba);
+        } catch (InsufficientAmountException e) {
+            e.printStackTrace();
+        } catch (InvalidAmountException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(wallet);
+        System.out.println(ba);
 
         launch(args);
 

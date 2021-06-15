@@ -1,9 +1,13 @@
 package domain;
 
+import Exceptions.InsufficientAmountException;
+import Exceptions.InsufficientBalanceException;
+import Exceptions.InvalidAmountException;
 import Exceptions.InvalidFeeException;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -60,6 +64,30 @@ public class Wallet implements Serializable {
         } else {
             throw new InvalidFeeException();
         }
+    }
+
+    public void buy(BigDecimal amount, BigDecimal currentPrice, BankAccount bankAccount) throws InvalidAmountException, InsufficientBalanceException {
+        if(amount.compareTo(new BigDecimal("0"))<=0){
+            throw new InvalidAmountException();
+        }
+        Transaction transaction = new Transaction(this.cryptoCurrency,amount,currentPrice.setScale(6, RoundingMode.HALF_UP));
+        bankAccount.withdraw(transaction.getTotal().multiply(new BigDecimal("100").add(this.feeInPercent).
+                divide(new BigDecimal("100"))).setScale(6,RoundingMode.HALF_UP));
+        this.transaction.add(transaction);
+        this.amount = this.amount.add(transaction.getAmount());
+    }
+
+    public void sell(BigDecimal amount, BigDecimal currentPrice, BankAccount bankAccount) throws InsufficientAmountException, InvalidAmountException {
+        if(amount.compareTo(new BigDecimal("0"))<=0){
+            throw new InvalidAmountException();
+        }
+        BigDecimal reducedAmount = this.amount.subtract(amount);
+        if(reducedAmount.compareTo(new BigDecimal("0"))<0) throw new InsufficientAmountException();
+        Transaction transaction = new Transaction(this.cryptoCurrency, amount.negate(), currentPrice.setScale(6, RoundingMode.HALF_UP));
+        bankAccount.deposit(transaction.getTotal().multiply(new BigDecimal("100").subtract(this.feeInPercent).
+                divide(new BigDecimal("100"))).setScale(6, RoundingMode.HALF_UP));
+        this.transaction.add(transaction);
+        this.amount = reducedAmount;
     }
 
     @Override

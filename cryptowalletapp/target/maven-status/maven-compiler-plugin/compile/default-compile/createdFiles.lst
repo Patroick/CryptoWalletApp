@@ -1,4 +1,6 @@
 domain\Wallet.class
+Exceptions\InvalidAmountException.class
+Exceptions\InsufficientAmountException.class
 domain\BankAccount.class
 Exceptions\InsufficientBalanceException.class
 at\htlimst\sample\Main.class
