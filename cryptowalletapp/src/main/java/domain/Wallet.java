@@ -84,7 +84,7 @@ public class Wallet implements Serializable {
         BigDecimal reducedAmount = this.amount.subtract(amount);
         if(reducedAmount.compareTo(new BigDecimal("0"))<0) throw new InsufficientAmountException();
         Transaction transaction = new Transaction(this.cryptoCurrency, amount.negate(), currentPrice.setScale(6, RoundingMode.HALF_UP));
-        bankAccount.deposit(transaction.getTotal().multiply(new BigDecimal("100").subtract(this.feeInPercent).
+        bankAccount.deposit(transaction.getTotal().negate().multiply(new BigDecimal("100").subtract(this.feeInPercent).
                 divide(new BigDecimal("100"))).setScale(6, RoundingMode.HALF_UP));
         this.transaction.add(transaction);
         this.amount = reducedAmount;

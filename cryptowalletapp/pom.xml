@@ -17,7 +17,7 @@
         <javafx.version>16</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.41</client.plugin.version>
-        <main.class>at.htlimst.sample.Main</main.class>
+        <main.class>at.htlimst.sample.WalletApp</main.class>
     </properties>
 
     <dependencies>
@@ -69,7 +69,7 @@
                         <list>at.htlimst.sample.main</list>
                     </bundlesList>
                     <reflectionList>
-                        <list>at.htlimst.sample.MainController</list>
+                        <list>ui.MainController</list>
                     </reflectionList>
                 </configuration>
             </plugin>
