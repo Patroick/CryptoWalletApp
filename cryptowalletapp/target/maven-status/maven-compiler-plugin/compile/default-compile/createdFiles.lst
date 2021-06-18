@@ -2,6 +2,7 @@ domain\Wallet.class
 Exceptions\InvalidAmountException.class
 infrastruktur\CurrentCurrencyPrices.class
 Exceptions\InsufficientAmountException.class
+ui\GlobalContext.class
 Exceptions\RetrieveDataException.class
 ui\MainController.class
 Exceptions\GetCurrentPriceException.class

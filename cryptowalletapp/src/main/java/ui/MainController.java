@@ -3,32 +3,47 @@ package ui;
 import java.text.MessageFormat;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import domain.Wallet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 
-public class MainController {
-
-    private final String javafxVersion = System.getProperty("javafx.version");
+public class MainController extends BaseControllerState {
 
     @FXML
-    private Label color;
+    private Button btnClose;
 
     @FXML
-    private Label label;
+    private ComboBox cmbWalletCurrency;
 
     @FXML
-    private ResourceBundle resources;
+    private Label lblBankaccountBalance;
+
+    @FXML
+    private TableView<Wallet> tableView;
 
     public void initialize() {
-        label.setText(String.format(resources.getString("label.text"), "JavaFX", javafxVersion));
+
     }
 
-
-    @FXML
-    private void updateColor() {
-        Random random = new Random();
-        this.color.setTextFill(Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
+    public void deposit(){
+        System.out.println("DEPOSIT");
     }
+
+    public void withdraw(){
+        System.out.println("WITHDRAW");
+    }
+
+    public void openWallet(){
+        System.out.println("OPEN WALLET");
+    }
+
+    public  void newWallet(){
+        System.out.println("NEW WALLET");
+    }
+
 }

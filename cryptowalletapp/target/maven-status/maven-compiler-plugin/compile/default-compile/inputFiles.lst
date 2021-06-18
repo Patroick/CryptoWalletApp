@@ -1,13 +1,14 @@
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\InsufficientAmountException.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\domain\CurrentPriceForCurrency.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\infrastruktur\CurrentCurrencyPrices.java
+C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\ui\MainController.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\RetrieveDataException.java
+C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\ui\GlobalContext.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\InvalidFeeException.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\domain\Transaction.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\InvalidAmountException.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\SaveDataException.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\infrastruktur\FileDataStore.java
-C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\at\htlimst\sample\MainController.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\Exceptions\InsufficientBalanceException.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\domain\Wallet.java
 C:\Users\Patrick\OneDrive - HTL Imst\Pos1 Praxis\!CryptoWallet\CryptoWalletApp\cryptowalletapp\src\main\java\domain\BankAccount.java
