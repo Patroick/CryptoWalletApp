@@ -1,11 +1,10 @@
 package at.htlimst.sample;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.ResourceBundle;
-
-import Exceptions.*;
-import domain.*;
+import Exceptions.RetrieveDataException;
+import Exceptions.SaveDataException;
+import domain.BankAccount;
+import domain.DataStore;
+import domain.WalletList;
 import infrastruktur.CurrentCurrencyPrices;
 import infrastruktur.FileDataStore;
 import javafx.application.Application;
@@ -13,9 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ui.GlobalContext;
+
+import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class WalletApp extends Application {
 
@@ -23,6 +24,7 @@ public class WalletApp extends Application {
     public static final String GLOBAL_WALLET_LIST = "walletlist";
     public static final String GLOBAL_BANK_ACCOUNT = "bankaccount";
     public static final String GLOBAL_CURRENT_CURRENCY_PRICES = "currencyprices";
+    public static String GLOBAL_SELECTED_WALLET = "selectedWallet";
 
     public static void switchScene(String fxmlFile, String resourceBundle){
         try {
@@ -91,6 +93,8 @@ public class WalletApp extends Application {
         GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_WALLET_LIST, walletList);
         GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_BANK_ACCOUNT, bankAccount);
         GlobalContext.getGlobalContext().putStateFor(WalletApp.GLOBAL_CURRENT_CURRENCY_PRICES, new CurrentCurrencyPrices());
+
+        mainStage.setOnCloseRequest(event -> event.consume());
 
         switchScene("main.fxml", "at.htlimst.sample.main");
     }
